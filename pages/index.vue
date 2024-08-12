@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto p-4">
     <h1 class="text-3xl font-bold mb-4">Todo App</h1>
-    <!--TodoForm @add-todo="addTodo" :disabled="isLoading" /-->
+    <TodoForm @add-todo="addTodo" :disabled="isLoading" />
     <UCard>
       <TodoList
         :todos="todos"
@@ -41,13 +41,6 @@ const fetchTodos = async () => {
   }
 };
 
-/*
-const fetchTodos = async () => {
-  const { data, error } = await useFetch("http://localhost:8000/api/todos");
-  todos.value = data.value;
-};
-*/
-
 const addTodo = async (newTodo) => {
   try {
     await $fetch("http://localhost:8000/api/todos", {
@@ -61,14 +54,6 @@ const addTodo = async (newTodo) => {
   } catch (err) {
     console.error(err);
   }
-};
-
-const updateTodo = async (updatedTodo) => {
-  await useFetch(`http://localhost:8000/api/todos/${updatedTodo.id}`, {
-    method: "PUT",
-    body: updatedTodo,
-  });
-  await fetchTodos();
 };
 
 const deleteTodo = async (id) => {
