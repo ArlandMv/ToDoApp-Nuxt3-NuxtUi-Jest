@@ -1,75 +1,49 @@
-# Nuxt UI Minimal Starter
+# Nuxt Todo App
 
-Look at [Nuxt docs](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI docs](https://ui.nuxt.com) to learn more.
+Esta es una aplicación simple para gestionar tus tareas utilizando Nuxt.js y Nuxt UI. 
 
-## Setup
+## Project Overview
 
-Make sure to install the dependencies:
+La aplicación consta de una sola página (index.vue) con las siguientes características:
 
-```bash
-# npm
-npm install
+- **Formulario de Tareas**: Permite a los usuarios agregar nuevas tareas.
+- **Lista de Tareas**: Muestra la lista de tareas con opciones para actualizar o eliminar cada una.
+- **Estado de Carga**: Muestra un mensaje de carga mientras se obtienen las tareas..
+- **Manejo de Errores**:  Muestra un mensaje de error si la obtención de tareas falla.
+- **Usa Ciclo de vida**: onMounted
 
-# pnpm
-pnpm install
+## Components
 
-# yarn
-yarn install
+## API Endpoints
 
-# bun
-bun install
-```
+- `GET http://localhost:8000/api/todos`: Obtiene la lista de tareas.
+- `POST http://localhost:8000/api/todos`:  Agrega una nueva tarea.
+- `DELETE http://localhost:8000/api/todos/{id}`: Elimina una tarea por su ID.
 
-## Development Server
+## Running the App
 
-Start the development server on `http://localhost:3000`:
+1. **Instalar Dependencias**:
 
-```bash
-# npm
-npm run dev
+    ```bash
+    npm install
+    ```
 
-# pnpm
-pnpm run dev
+2. **Iniciar el Servidor**:
 
-# yarn
-yarn dev
+    ```bash
+    npm run dev
+    ```
 
-# bun
-bun run dev
-```
+    Ir a `http://localhost:3000`.
 
-## Production
 
-Build the application for production:
+## Development Notes
 
-```bash
-# npm
-npm run build
+- Asegure que la API esté ejecutándose en http://localhost:8000 .
+- La aplicación utiliza Nuxt UI para mejorar la experiencia de usuario y la apariencia de los componentes.
 
-# pnpm
-pnpm run build
+## License
 
-# yarn
-yarn build
+Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
 
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+---
