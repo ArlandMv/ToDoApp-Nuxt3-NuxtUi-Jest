@@ -32,7 +32,7 @@ const fetchTodos = async () => {
   try {
     const data = await $fetch("http://localhost:8000/api/todos");
     todos.value = data;
-    console.log(data.value);
+    //console.log(data.value);
   } catch (err) {
     error.value = err;
     console.error("Error fetching todos:", err);
@@ -56,6 +56,18 @@ const addTodo = async (newTodo) => {
   }
 };
 
+const updateTodo = async (todo) => {
+  try {
+    await $fetch(`http://localhost:8000/api/todos/${todo.id}`, {
+      method: "PUT",
+      body: { completed: todo.completed },
+    })
+    await fetchTodos()
+  } catch (err) {
+    console.error("Error updating todo:", err)
+  }
+}
+
 const deleteTodo = async (id) => {
   await $fetch(`http://localhost:8000/api/todos/${id}`, {
     method: "DELETE",
@@ -64,7 +76,4 @@ const deleteTodo = async (id) => {
 };
 
 onMounted(fetchTodos);
-const toggleTodo = (todo) => {
-  updateTodo(todo.id, { completed: !todo.completed });
-};
 </script>
